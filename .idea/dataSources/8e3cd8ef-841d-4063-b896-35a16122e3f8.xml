@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - lab3_java@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="lab3_java">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="lab1_java"/>
+    <schema id="4" name="mysql"/>
+    <schema id="5" name="performance_schema"/>
+    <schema id="6" name="sys"/>
+    <table id="7" parent="1" name="adress"/>
+    <table id="8" parent="1" name="brand"/>
+    <table id="9" parent="1" name="cars"/>
+    <table id="10" parent="1" name="document"/>
+    <table id="11" parent="1" name="hibernate_sequence"/>
+    <table id="12" parent="1" name="owner"/>
+    <table id="13" parent="1" name="car_owner"/>
+    <table id="14" parent="1" name="roles"/>
+    <table id="15" parent="1" name="users"/>
+    <table id="16" parent="1" name="users_roles"/>
+    <column id="17" parent="7" name="adress_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="18" parent="7" name="country">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="19" parent="7" name="number">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="20" parent="7" name="street">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="21" parent="7" name="town">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="22" parent="7" name="PRIMARY">
+      <columns>adress_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="23" parent="8" name="brand_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="24" parent="8" name="brand_name">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="25" parent="8" name="country">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="26" parent="8" name="foundation_year">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="27" parent="8" name="PRIMARY">
+      <columns>brand_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="28" parent="9" name="car_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="29" parent="9" name="color">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="30" parent="9" name="engine_capacity">
+      <data-type>float|0</data-type>
+    </column>
+    <column id="31" parent="9" name="model">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="32" parent="9" name="pass_way">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="33" parent="9" name="release_date">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="34" parent="9" name="brand_brand_id">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="35" parent="9" name="document_document_id">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="36" parent="9" name="FK_0facf6551ee945d988694e58ea9">
+      <columns>brand_brand_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="37" parent="9" name="FK_dfb8b72aec7447d6b3336f632e3">
+      <columns>document_document_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="38" parent="9" name="PRIMARY">
+      <columns>car_id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="39" parent="9" name="FKph7dygojaqeynenulet26tox1">
+      <columns>brand_brand_id</columns>
+      <ref-key>~.brand.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="40" parent="9" name="FK_0facf6551ee945d988694e58ea9">
+      <columns>brand_brand_id</columns>
+      <ref-key>~.brand.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="41" parent="9" name="FKsebbe8ceukkvt5uv4cdyu62a5">
+      <columns>document_document_id</columns>
+      <ref-key>~.document.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="42" parent="9" name="FK_dfb8b72aec7447d6b3336f632e3">
+      <columns>document_document_id</columns>
+      <ref-key>~.document.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="43" parent="10" name="document_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="44" parent="10" name="car_number">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="45" parent="10" name="owner">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="46" parent="10" name="register_date">
+      <data-type>date|0</data-type>
+    </column>
+    <key id="47" parent="10" name="PRIMARY">
+      <columns>document_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="48" parent="11" name="next_val">
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="49" parent="12" name="owner_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="50" parent="12" name="first_name">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="51" parent="12" name="last_name">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="52" parent="12" name="adress_adress_id">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="53" parent="12" name="FK_c678e65970d94191aa9c214452a">
+      <columns>adress_adress_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="54" parent="12" name="PRIMARY">
+      <columns>owner_id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="55" parent="12" name="FKd3vti5to8u39mcwagyqwu09rk">
+      <columns>adress_adress_id</columns>
+      <ref-key>~.adress.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="56" parent="12" name="FK_c678e65970d94191aa9c214452a">
+      <columns>adress_adress_id</columns>
+      <ref-key>~.adress.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="57" parent="13" name="car_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="58" parent="13" name="owner_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="59" parent="13" name="FK1cfy7ggldxdtxaqpx6vuvxa7l">
+      <columns>owner_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="60" parent="13" name="FK1gtsmt4bvymj051d71x35kx8">
+      <columns>car_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <foreign-key id="61" parent="13" name="FK1gtsmt4bvymj051d71x35kx8">
+      <columns>car_id</columns>
+      <ref-key>~.cars.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="62" parent="13" name="FK1cfy7ggldxdtxaqpx6vuvxa7l">
+      <columns>owner_id</columns>
+      <ref-key>~.owner.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="63" parent="14" name="role">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <key id="64" parent="14" name="PRIMARY">
+      <columns>role</columns>
+      <primary>1</primary>
+    </key>
+    <column id="65" parent="15" name="login">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="66" parent="15" name="password">
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <key id="67" parent="15" name="PRIMARY">
+      <columns>login</columns>
+      <primary>1</primary>
+    </key>
+    <column id="68" parent="16" name="login">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+    </column>
+    <column id="69" parent="16" name="role">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <index id="70" parent="16" name="users_roles_fk2">
+      <columns>role</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="71" parent="16" name="PRIMARY">
+      <columns>login
+role</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="72" parent="16" name="users_roles_fk1">
+      <columns>login</columns>
+      <ref-key>~.users.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="73" parent="16" name="users_roles_fk2">
+      <columns>role</columns>
+      <ref-key>~.roles.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>

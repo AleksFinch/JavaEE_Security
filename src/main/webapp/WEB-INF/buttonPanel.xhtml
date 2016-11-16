@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:body>
+
+
+    <h:form >
+        <h:dataTable value="#{source.cars}" var = "car">
+            <h:column>
+                <f:facet name="header">Brand</f:facet>
+                <h:outputText value="#{car.brand.brand_name}"
+                              rendered="#{!car.editable}"/>
+
+
+                <h:selectOneMenu value="#{car.brand}" rendered="#{car.editable and allownToShow}" converter="#{brandConverter}" >
+                    <f:selectItems value="#{brandBean.brands}" var ="brand"
+                                   itemLabel="#{brand.brand_name}" itemValue="#{brand}"
+                    />
+                </h:selectOneMenu>
+
+
+
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Model</f:facet>
+
+                <h:outputText value="#{car.model}" rendered="#{!car.editable}"/>
+
+                <h:inputText value="#{car.model}" rendered="#{car.editable and allownToShow}"/>
+
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Engine capacity</f:facet>
+                <h:outputText value="#{car.engine_capacity}" rendered="#{!car.editable}"/>
+
+                <h:inputText value="#{car.engine_capacity}" rendered="#{car.editable and allownToShow}"/>
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Pass way</f:facet>
+                <h:outputText value="#{car.pass_way}" rendered="#{!car.editable}"/>
+
+                <h:inputText value="#{car.pass_way}" rendered="#{car.editable and allownToShow}"/>
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Release date</f:facet>
+                <h:outputText value="#{car.release_date}" rendered="#{!car.editable}"/>
+
+                <h:inputText value="#{car.release_date}" rendered="#{car.editable  and allownToShow}"/>
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Color</f:facet>
+                <h:outputText value="#{car.color}" rendered="#{!car.editable}"/>
+
+                <h:inputText value="#{car.color}" rendered="#{car.editable  and allownToShow}"/>
+
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Number</f:facet>
+                <h:outputText value="#{car.document.car_number}"
+                              rendered="#{!car.editable}"/>
+
+
+                <h:selectOneMenu value="#{car.document}" rendered="#{car.editable  and allownToShow}" converter="#{documentConverter}" >
+                    <f:selectItems value="#{documentBean.documents}" var ="document"
+                                   itemLabel="#{document.car_number}" itemValue="#{document}"
+                    />
+                </h:selectOneMenu>
+
+
+
+            </h:column>
+            <h:column>
+                <f:facet name="header">Owners</f:facet>
+                <h:dataTable value="#{car.owners}" var="owner" rendered="#{!car.editable}">
+                    <h:column>
+                        #{owner.last_name}
+                    </h:column>
+                </h:dataTable>
+
+
+                <h:selectManyListbox value = "#{car.owners}" rendered="#{car.editable and allownToShow}" converter="#{ownerConverter}">
+                    <f:selectItems value="#{ownerBean.owners}" var ="owner"
+                                   itemLabel="#{owner.last_name}" itemValue="#{owner}"
+                    />
+                    <f:attribute name="collectionType" value="java.util.ArrayList" />
+                </h:selectManyListbox>
+
+
+
+            </h:column>
+            <h:column rendered="#{allownToShow}">
+                <f:facet name="header">Edit</f:facet>
+
+                <h:commandButton value="Edit"
+                                 action="#{source.editCar(car)}"
+                                 rendered="#{!car.editable}"/>
+
+
+            </h:column>
+            <h:column rendered="#{allownToShow}">
+                <f:facet name="header">Delete</f:facet>
+
+                <h:commandButton value="Delete" action="#{source.deleteCar(car)}">
+
+                </h:commandButton>
+
+
+            </h:column>
+
+        </h:dataTable>
+
+        <h:commandButton value="Save" action="#{source.saveCars}" rendered="#{allownToShow}"/>
+        <h:commandButton value="Add" action="#{source.addNewCar}" rendered="#{allownToShow}"/>
+    </h:form>
+</h:body>
+</html>
